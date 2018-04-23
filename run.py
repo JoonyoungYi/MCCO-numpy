@@ -24,6 +24,8 @@ def main(n_1, n_2, r, m):
     L = np.random.randn(n_1, r)
     R = np.random.randn(n_2, r)
     M = np.dot(L, R.T)
+    M_max = np.max(M)
+    M_min = np.min(M)
 
     all_indices = []
     for i in range(n_1):
@@ -31,10 +33,17 @@ def main(n_1, n_2, r, m):
             all_indices.append((i, j))
     sampled_indices = random.sample(all_indices, m)
 
-    X = solve(M, sampled_indices)
+    M_ = M.copy()
+    # For masking. This loop should not affect the result.
+    for i in range(n_1):
+        for j in range(n_2):
+            if (i, j) not in sampled_indices:
+                M_[i, j] = M_max * M_max
+    X = solve(M_, sampled_indices)
+
     print("ERROR:", (np.linalg.norm(X - M, "fro") / np.linalg.norm(M, "fro")))
 
 
 if __name__ == '__main__':
-    n = 40
-    main(n, n, r=2, m=640)
+    n = 20
+    main(n, n, r=2, m=380)
