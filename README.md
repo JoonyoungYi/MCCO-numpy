@@ -2,6 +2,7 @@
 
 - This repository reproduce experiments in the paper, [Exact Matrix Completion via Convex Optimization](https://statweb.stanford.edu/~candes/papers/MatrixCompletion.pdf).
   - Candès, Emmanuel J., and Benjamin Recht. "Exact matrix completion via convex optimization." Foundations of Computational mathematics 9.6 (2009): 717.
+  - I made [slide](https://www.slideshare.net/ssuser62b35f/exact-matrix-completion-via-convex-optimization-slideppt) of this paper. You can see the [slide](https://www.slideshare.net/ssuser62b35f/exact-matrix-completion-via-convex-optimization-slideppt) for better understanding.
 - I try to minimize the number of packages to install. As the result of this effort, you can use this repository by only installing several packages only with python virtual environment.
 - How to install and run. I've tested on python3.6. But, I think python3 is ok.
 ```
