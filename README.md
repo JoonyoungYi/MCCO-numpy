@@ -39,4 +39,4 @@ X: The solution of nuclear norm minimization.
 omega: The sample set. observed entry (i, j) in the sample set omega.
 ```
 - You can optimize more to enhance performance.
-- This paper handles the noise-less case. If your data has noise, you should add the regularizer term to objective function. See [cvxpy](http://www.cvxpy.org/en/latest/).
+- This paper handles the noise-less case. If your data has noise, you should add a regularizer term to objective function. See [cvxpy](http://www.cvxpy.org/en/latest/).
