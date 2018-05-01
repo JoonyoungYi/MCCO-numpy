@@ -1,4 +1,4 @@
-# Exact Matrix Completion via Convex Optimization(exact-mc)
+# Exact Matrix Completion via Convex Optimization(MCCO-numpy)
 
 - This repository reproduce experiments in the paper, [Exact Matrix Completion via Convex Optimization](https://statweb.stanford.edu/~candes/papers/MatrixCompletion.pdf).
   - Candès, Emmanuel J., and Benjamin Recht. "Exact matrix completion via convex optimization." Foundations of Computational mathematics 9.6 (2009): 717.
