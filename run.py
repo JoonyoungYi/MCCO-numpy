@@ -18,7 +18,6 @@ def _solve(M, omega):
         constr = (X_[i, j + n_1] == M[i, j])
         constraints.append(constr)
     problem = Problem(objective, constraints)
-    print(constraints)
     problem.solve(solver=CVXOPT)
 
     print("STATUS       :", problem.status)
