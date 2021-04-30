@@ -9,10 +9,11 @@ from cvxpy import *
 def _solve(M, omega):
     n_1 = M.shape[0]
     n_2 = M.shape[1]
-    X_ = Semidef(n_1 + n_2)
+    #X_ = Semidef(n_1 + n_2)
+    X_ = Variable((n_1 + n_2, n_1 + n_2), PSD=True)
     objective = Minimize(trace(X_))
-
-    constraints = [(X_ == X_.T)]  # add symmetric constraint.
+    #constraints = [(X_) == (X_.T)]  # add symmetric constraint.
+    constraints=[]
     for i, j in omega:
         constr = (X_[i, j + n_1] == M[i, j])
         constraints.append(constr)
