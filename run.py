@@ -85,14 +85,82 @@ def main(n_1, n_2, r, m):
     print('TRAIN RMSE   :', np.linalg.norm(E_train, "fro") / m)
     E_test = E.copy()
     np.place(E_test, mask, 0)
-    print('TEST  RMSE   :', np.linalg.norm(E_test, "fro") / (n_1 * n_2 - m))
+    test_rmse=np.linalg.norm(E_test, "fro") / (n_1 * n_2 - m)
+    print('TEST  RMSE   :', test_rmse)
 
     frobenius_norm_ratio = (
         np.linalg.norm(X - M, "fro") / np.linalg.norm(M, "fro"))
     print("|X-M|_F/|M|_F:", frobenius_norm_ratio)  # the metric of paper.
 
-
+    if test_rmse<10**(-6):
+        return 1
+    else:
+        return 0
 if __name__ == '__main__':
     n = 20
     p = 0.8
-    main(n, n, r=2, m=int(n * n * p))
+    r=2
+    solved=[]
+    for p in range(0,100):
+        p=p/100
+        try:
+            status=main(n, n, r, m=int(n * n * p))
+            solved.append(status)
+        except:
+            solved.append(0)
+    import csv
+    with open('Solver_result.csv', 'a',newline='') as csvfile:  
+            csvwriter = csv.writer(csvfile)
+            csvwriter.writerow(solved)
+    
+    r=3
+    solved=[]
+    for p in range(0,100):
+        p=p/100
+        try:
+            status=main(n, n, r, m=int(n * n * p))
+            solved.append(status)
+        except:
+            solved.append(0)
+    with open('Solver_result.csv', 'a',newline='') as csvfile:  
+            csvwriter = csv.writer(csvfile)
+            csvwriter.writerow(solved)
+
+    r=4
+    solved=[]
+    for p in range(0,100):
+        p=p/100
+        try:
+            status=main(n, n, r, m=int(n * n * p))
+            solved.append(status)
+        except:
+            solved.append(0)
+    with open('Solver_result.csv', 'a',newline='') as csvfile:  
+            csvwriter = csv.writer(csvfile)
+            csvwriter.writerow(solved)
+
+    r=5
+    solved=[]
+    for p in range(0,100):
+        p=p/100
+        try:
+            status=main(n, n, r, m=int(n * n * p))
+            solved.append(status)
+        except:
+            solved.append(0)
+    with open('Solver_result.csv', 'a',newline='') as csvfile:  
+            csvwriter = csv.writer(csvfile)
+            csvwriter.writerow(solved)
+
+    r=6
+    solved=[]
+    for p in range(0,100):
+        p=p/100
+        try:
+            status=main(n, n, r, m=int(n * n * p))
+            solved.append(status)
+        except:
+            solved.append(0)
+    with open('Solver_result.csv', 'a',newline='') as csvfile:  
+            csvwriter = csv.writer(csvfile)
+            csvwriter.writerow(solved)
